@@ -1,3 +1,15 @@
+'''
+uv run python pipeline/ingest_data.py \
+  --user=root \
+  --password=root \
+  --host=localhost \
+  --port=5432 \
+  --db=ny_taxi \
+  --table=yellow_taxi_trips \
+  --year=2021 \
+  --month=2
+'''
+
 import pandas as pd
 from sqlalchemy import create_engine
 from tqdm.auto import tqdm
@@ -78,17 +90,3 @@ def run(user, password, host, port, db, table, year, month):
 
 if __name__ == "__main__":
     run()
-
-
-
-'''
-uv run python ingest_data.py \
-  --user=root \
-  --password=root \
-  --host=localhost \
-  --port=5432 \
-  --db=ny_taxi \
-  --table=yellow_taxi_trips \
-  --year=2021 \
-  --month=2
-'''
