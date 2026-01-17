@@ -3,9 +3,10 @@
 ## Docker
 
 ### 1.Network
-docker network create pg-network
+`docker network create pg-network`
 
 ### 2.postgresql
+```
 docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
@@ -15,8 +16,10 @@ docker run -it \
   --network=pg-network \
   --name pgdatabase \
   postgres:18
+```
 
 ### 3.pgadmin
+```
 docker run -it \
   -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
   -e PGADMIN_DEFAULT_PASSWORD="root" \
@@ -25,10 +28,12 @@ docker run -it \
   --network=pg-network \
   --name pgadmin \
   dpage/pgadmin4
+```
 
 ### 4.pipeline
+```
 docker run -it \
-  --network=pg-network \
+  --network=pg-network \. 
   taxi_ingest:v001 \
     --user=root \
     --password=root \
@@ -38,3 +43,12 @@ docker run -it \
     --table=yellow_taxi_trips \
     --year=2021 \
     --month=2
+```
+
+## docker-compose
+
+`docker compose up`
+
+`docker network ls` con la respuesta cambio el `--nerwork` del pipeline
+
+
