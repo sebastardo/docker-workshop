@@ -34,6 +34,8 @@ docker run -it \
 ```
 
 ### 4.pipeline
+`docker build -t taxi_ingest:v001 .`
+
 ```
 docker run -it \
   --network=pg-network \. 
